@@ -21,7 +21,7 @@ public class JavaFXMain extends Application {
 
             Scene scene = new Scene(root, 800, 600);
             stage = new Stage();
-            stage.setTitle("PLanilhas");
+            stage.setTitle("Planilhas");
             stage.setResizable(false);
             stage.setScene(scene);
             stage.show();
