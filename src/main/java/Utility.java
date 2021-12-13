@@ -10,4 +10,8 @@ public class Utility {
         alert.showAndWait();
     }
 
+    public static int stringToInt(String string) {
+        return Integer.parseInt(string);
+    }
+
 }
