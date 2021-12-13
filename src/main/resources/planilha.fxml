@@ -23,5 +23,10 @@
             <Font size="14.0" />
          </font>
       </Button>
+      <Button fx:id="save_btn" onAction="#salvaComoExcel" layoutX="695.0" layoutY="556.0" mnemonicParsing="false" text="Salvar Excel">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -13,7 +13,7 @@ public class JavaFXMain extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("planilha.fxml"));
             Parent root = loader.load();
