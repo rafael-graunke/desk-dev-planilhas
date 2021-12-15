@@ -1,3 +1,6 @@
+package main;
+
+import controllers.Controller;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,7 +18,7 @@ public class JavaFXMain extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("planilha.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/planilha.fxml"));
             Parent root = loader.load();
             Controller controller = loader.getController();
 

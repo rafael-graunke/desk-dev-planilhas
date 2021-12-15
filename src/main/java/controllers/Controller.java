@@ -1,3 +1,5 @@
+package controllers;
+
 public class Controller {
 
     protected Controller main_controller;

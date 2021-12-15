@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerPlanilhas">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ControllerPlanilhas">
    <children>
       <TabPane fx:id="tabpane" layoutX="15.0" layoutY="60.0" prefHeight="481.0" prefWidth="770.0" tabClosingPolicy="UNAVAILABLE" />
       <Button fx:id="add_btn" layoutX="15.0" layoutY="14.0" mnemonicParsing="false" onAction="#criaNovaAba" text="Adicionar Turma">
@@ -23,7 +23,17 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="save_btn" onAction="#salvaComoExcel" layoutX="695.0" layoutY="556.0" mnemonicParsing="false" text="Salvar Excel">
+      <Button fx:id="save_btn" layoutX="683.0" layoutY="556.0" mnemonicParsing="false" onAction="#salvaComoExcel" text="Salva Arquivo">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="deletestudent_btn" layoutX="449.0" layoutY="14.0" mnemonicParsing="false" onAction="#removeAluno" text="Remover Aluno">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="open_btn" layoutX="563.0" layoutY="556.0" mnemonicParsing="false" onAction="#leExcel" text="Abre Arquivo">
          <font>
             <Font size="14.0" />
          </font>
