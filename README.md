@@ -1,2 +1,2 @@
-# desk-dev-planilhas
-Trabalho de Desenvolvimento Desktop utilizando Apache POI para criação de planilhas em Excel.
+# Exemplo Apache POI
+Trabalho de Desenvolvimento Desktop utilizando Apache POI e JavaFX para criação de planilhas em Excel.
