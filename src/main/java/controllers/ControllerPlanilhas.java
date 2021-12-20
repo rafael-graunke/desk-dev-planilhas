@@ -1,5 +1,11 @@
 package controllers;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,6 +30,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.ResourceBundle;
+
+import static util.Utility.salvaArquivo;
 
 public class ControllerPlanilhas extends Controller implements Initializable {
 
@@ -142,7 +150,7 @@ public class ControllerPlanilhas extends Controller implements Initializable {
         } else {
             XSSFWorkbook wb = Utility.geraExcel(tabs);
 
-            File file = Utility.salvaArquivo();
+            File file = salvaArquivo();
 
             if (!(file == null)) {
                 try (OutputStream fileOut = new FileOutputStream(file)) {
@@ -197,6 +205,38 @@ public class ControllerPlanilhas extends Controller implements Initializable {
             Utility.showError("Erro ao abrir arquivo", "O arquivo selecionado não corresponde a um arquivo Excel.");
         }
 
+    }
+
+    public void exportaPDF() throws DocumentException {
+        try {
+            FileOutputStream fos = new FileOutputStream(salvaArquivo());
+            Document doc = PdfFactory.criaPDF();
+            PdfFactory.criaAtributos(doc);
+            PdfWriter writer = PdfWriter.getInstance(doc, fos);
+            doc.open();
+            for (Tab tab : tabpane.getTabs()) {
+                doc.add(new Paragraph(tab.getText()));
+                PdfPTable table = new PdfPTable(5);
+                table.addCell("Nome");
+                table.addCell("Nota 1");
+                table.addCell("Nota 2");
+                table.addCell("Nota 3");
+                table.addCell("Nota Exame");
+                TableView<Aluno> tableView = (TableView<Aluno>) tab.getContent().lookup("TableView");
+                for (Aluno a : tableView.getItems()) {
+                    table.addCell(a.getNome());
+                    table.addCell(Double.toString(a.getNota1()));
+                    table.addCell(Double.toString(a.getNota2()));
+                    table.addCell(Double.toString(a.getNota3()));
+                    table.addCell(Double.toString(a.getNotaExame()));
+                }
+                doc.add(table);
+            }
+            doc.close();
+            writer.close();
+        } catch (FileNotFoundException e) {
+            Utility.showError("Erro ao salvar arquivo", "Não foi possível salvar o arquivo no local selecionado");
+        }
     }
 
 }
