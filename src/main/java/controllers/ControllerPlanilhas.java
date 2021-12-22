@@ -32,6 +32,7 @@ import java.util.Iterator;
 import java.util.ResourceBundle;
 
 import static util.Utility.salvaArquivo;
+import static util.Utility.salvaArquivoPDF;
 
 public class ControllerPlanilhas extends Controller implements Initializable {
 
@@ -209,7 +210,7 @@ public class ControllerPlanilhas extends Controller implements Initializable {
 
     public void exportaPDF() throws DocumentException {
         try {
-            FileOutputStream fos = new FileOutputStream(salvaArquivo());
+            FileOutputStream fos = new FileOutputStream(salvaArquivoPDF());
             Document doc = PdfFactory.criaPDF();
             PdfFactory.criaAtributos(doc);
             PdfWriter writer = PdfWriter.getInstance(doc, fos);

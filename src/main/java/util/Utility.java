@@ -71,6 +71,15 @@ public class Utility {
         return fileChooser.showSaveDialog(stage);
     }
 
+    public static File salvaArquivoPDF() {
+        Stage stage = new Stage();
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("PDF", "*.pdf")
+        );
+        return fileChooser.showSaveDialog(stage);
+    }
+
     public static File leArquivo() {
         Stage stage = new Stage();
         FileChooser fileChooser = new FileChooser();
